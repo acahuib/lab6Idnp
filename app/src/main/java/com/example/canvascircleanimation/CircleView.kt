@@ -35,7 +35,10 @@ class CircleView @JvmOverloads constructor(
         if (isAnimating) {
             animator?.cancel()
             isAnimating = false
+            paint.color = Color.BLUE
+            invalidate()
         } else {
+            paint.color = Color.rgb((50..255).random(), (50..255).random(), (50..255).random())
             animator = ValueAnimator.ofFloat(50f, 150f).apply {
                 duration = 1000
                 repeatMode = ValueAnimator.REVERSE
